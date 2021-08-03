@@ -1,0 +1,431 @@
+{
+  "id": "src/js/utils.js",
+  "dependencies": [
+    {
+      "name": "/home/supfiger/work/my-apps/farm/package.json",
+      "includedInParent": true,
+      "mtime": 1627986296371
+    }
+  ],
+  "generated": {
+    "js": "\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.numberToArray = exports.randomNumberWithDecimalInRange = void 0;\n\nvar randomNumberWithDecimalInRange = function randomNumberWithDecimalInRange(_ref) {\n  var min = _ref.min,\n      max = _ref.max,\n      _ref$decimal = _ref.decimal,\n      decimal = _ref$decimal === void 0 ? 0 : _ref$decimal;\n  return (Math.random() * (max - min + min)).toFixed(decimal) * 1;\n};\n\nexports.randomNumberWithDecimalInRange = randomNumberWithDecimalInRange;\n\nvar numberToArray = function numberToArray(num) {\n  return Array(num).fill().map(function (item, index) {\n    return index;\n  });\n};\n\nexports.numberToArray = numberToArray;"
+  },
+  "sourceMaps": {
+    "js": {
+      "mappings": [
+        {
+          "generated": { "line": 8, "column": 0 },
+          "source": "src/js/utils.js",
+          "original": { "line": 1, "column": 7 }
+        },
+        {
+          "name": "randomNumberWithDecimalInRange",
+          "generated": { "line": 8, "column": 4 },
+          "source": "src/js/utils.js",
+          "original": { "line": 1, "column": 13 }
+        },
+        {
+          "generated": { "line": 8, "column": 34 },
+          "source": "src/js/utils.js",
+          "original": { "line": 1, "column": 43 }
+        },
+        {
+          "generated": { "line": 8, "column": 37 },
+          "source": "src/js/utils.js",
+          "original": { "line": 1, "column": 46 }
+        },
+        {
+          "name": "randomNumberWithDecimalInRange",
+          "generated": { "line": 8, "column": 46 },
+          "source": "src/js/utils.js",
+          "original": { "line": 1, "column": 13 }
+        },
+        {
+          "generated": { "line": 8, "column": 76 },
+          "source": "src/js/utils.js",
+          "original": { "line": 1, "column": 46 }
+        },
+        {
+          "generated": { "line": 9, "column": 0 },
+          "source": "src/js/utils.js",
+          "original": { "line": 1, "column": 46 }
+        },
+        {
+          "name": "min",
+          "generated": { "line": 9, "column": 6 },
+          "source": "src/js/utils.js",
+          "original": { "line": 1, "column": 49 }
+        },
+        {
+          "generated": { "line": 9, "column": 9 },
+          "source": "src/js/utils.js",
+          "original": { "line": 1, "column": 46 }
+        },
+        {
+          "name": "min",
+          "generated": { "line": 9, "column": 17 },
+          "source": "src/js/utils.js",
+          "original": { "line": 1, "column": 49 }
+        },
+        {
+          "generated": { "line": 9, "column": 20 },
+          "source": "src/js/utils.js",
+          "original": { "line": 1, "column": 46 }
+        },
+        {
+          "generated": { "line": 10, "column": 0 },
+          "source": "src/js/utils.js",
+          "original": { "line": 1, "column": 46 }
+        },
+        {
+          "name": "max",
+          "generated": { "line": 10, "column": 6 },
+          "source": "src/js/utils.js",
+          "original": { "line": 1, "column": 54 }
+        },
+        {
+          "generated": { "line": 10, "column": 9 },
+          "source": "src/js/utils.js",
+          "original": { "line": 1, "column": 46 }
+        },
+        {
+          "name": "max",
+          "generated": { "line": 10, "column": 17 },
+          "source": "src/js/utils.js",
+          "original": { "line": 1, "column": 54 }
+        },
+        {
+          "generated": { "line": 10, "column": 20 },
+          "source": "src/js/utils.js",
+          "original": { "line": 1, "column": 46 }
+        },
+        {
+          "generated": { "line": 11, "column": 0 },
+          "source": "src/js/utils.js",
+          "original": { "line": 1, "column": 46 }
+        },
+        {
+          "name": "decimal",
+          "generated": { "line": 11, "column": 26 },
+          "source": "src/js/utils.js",
+          "original": { "line": 1, "column": 59 }
+        },
+        {
+          "generated": { "line": 11, "column": 33 },
+          "source": "src/js/utils.js",
+          "original": { "line": 1, "column": 46 }
+        },
+        {
+          "generated": { "line": 12, "column": 0 },
+          "source": "src/js/utils.js",
+          "original": { "line": 1, "column": 46 }
+        },
+        {
+          "name": "decimal",
+          "generated": { "line": 12, "column": 6 },
+          "source": "src/js/utils.js",
+          "original": { "line": 1, "column": 59 }
+        },
+        {
+          "generated": { "line": 12, "column": 13 },
+          "source": "src/js/utils.js",
+          "original": { "line": 1, "column": 46 }
+        },
+        {
+          "generated": { "line": 12, "column": 42 },
+          "source": "src/js/utils.js",
+          "original": { "line": 1, "column": 69 }
+        },
+        {
+          "generated": { "line": 12, "column": 43 },
+          "source": "src/js/utils.js",
+          "original": { "line": 1, "column": 46 }
+        },
+        {
+          "generated": { "line": 13, "column": 0 },
+          "source": "src/js/utils.js",
+          "original": { "line": 1, "column": 46 }
+        },
+        {
+          "generated": { "line": 13, "column": 9 },
+          "source": "src/js/utils.js",
+          "original": { "line": 2, "column": 2 }
+        },
+        {
+          "name": "Math",
+          "generated": { "line": 13, "column": 10 },
+          "source": "src/js/utils.js",
+          "original": { "line": 2, "column": 3 }
+        },
+        {
+          "generated": { "line": 13, "column": 14 },
+          "source": "src/js/utils.js",
+          "original": { "line": 2, "column": 7 }
+        },
+        {
+          "name": "random",
+          "generated": { "line": 13, "column": 15 },
+          "source": "src/js/utils.js",
+          "original": { "line": 2, "column": 8 }
+        },
+        {
+          "generated": { "line": 13, "column": 21 },
+          "source": "src/js/utils.js",
+          "original": { "line": 2, "column": 3 }
+        },
+        {
+          "name": "max",
+          "generated": { "line": 13, "column": 27 },
+          "source": "src/js/utils.js",
+          "original": { "line": 2, "column": 20 }
+        },
+        {
+          "generated": { "line": 13, "column": 30 },
+          "source": "src/js/utils.js",
+          "original": { "line": 2, "column": 23 }
+        },
+        {
+          "name": "min",
+          "generated": { "line": 13, "column": 33 },
+          "source": "src/js/utils.js",
+          "original": { "line": 2, "column": 26 }
+        },
+        {
+          "generated": { "line": 13, "column": 36 },
+          "source": "src/js/utils.js",
+          "original": { "line": 2, "column": 20 }
+        },
+        {
+          "name": "min",
+          "generated": { "line": 13, "column": 39 },
+          "source": "src/js/utils.js",
+          "original": { "line": 2, "column": 32 }
+        },
+        {
+          "generated": { "line": 13, "column": 42 },
+          "source": "src/js/utils.js",
+          "original": { "line": 2, "column": 3 }
+        },
+        {
+          "generated": { "line": 13, "column": 43 },
+          "source": "src/js/utils.js",
+          "original": { "line": 2, "column": 2 }
+        },
+        {
+          "name": "toFixed",
+          "generated": { "line": 13, "column": 45 },
+          "source": "src/js/utils.js",
+          "original": { "line": 2, "column": 38 }
+        },
+        {
+          "generated": { "line": 13, "column": 52 },
+          "source": "src/js/utils.js",
+          "original": { "line": 2, "column": 2 }
+        },
+        {
+          "name": "decimal",
+          "generated": { "line": 13, "column": 53 },
+          "source": "src/js/utils.js",
+          "original": { "line": 2, "column": 46 }
+        },
+        {
+          "generated": { "line": 13, "column": 60 },
+          "source": "src/js/utils.js",
+          "original": { "line": 2, "column": 2 }
+        },
+        {
+          "generated": { "line": 13, "column": 64 },
+          "source": "src/js/utils.js",
+          "original": { "line": 2, "column": 57 }
+        },
+        {
+          "generated": { "line": 13, "column": 65 },
+          "source": "src/js/utils.js",
+          "original": { "line": 1, "column": 46 }
+        },
+        {
+          "generated": { "line": 14, "column": 0 },
+          "source": "src/js/utils.js",
+          "original": { "line": 1, "column": 46 }
+        },
+        {
+          "generated": { "line": 14, "column": 1 },
+          "source": "src/js/utils.js",
+          "original": { "line": 1, "column": 7 }
+        },
+        {
+          "generated": { "line": 18, "column": 0 },
+          "source": "src/js/utils.js",
+          "original": { "line": 4, "column": 7 }
+        },
+        {
+          "name": "numberToArray",
+          "generated": { "line": 18, "column": 4 },
+          "source": "src/js/utils.js",
+          "original": { "line": 4, "column": 13 }
+        },
+        {
+          "generated": { "line": 18, "column": 17 },
+          "source": "src/js/utils.js",
+          "original": { "line": 4, "column": 26 }
+        },
+        {
+          "generated": { "line": 18, "column": 20 },
+          "source": "src/js/utils.js",
+          "original": { "line": 4, "column": 29 }
+        },
+        {
+          "name": "numberToArray",
+          "generated": { "line": 18, "column": 29 },
+          "source": "src/js/utils.js",
+          "original": { "line": 4, "column": 13 }
+        },
+        {
+          "generated": { "line": 18, "column": 42 },
+          "source": "src/js/utils.js",
+          "original": { "line": 4, "column": 29 }
+        },
+        {
+          "name": "num",
+          "generated": { "line": 18, "column": 43 },
+          "source": "src/js/utils.js",
+          "original": { "line": 4, "column": 30 }
+        },
+        {
+          "generated": { "line": 18, "column": 46 },
+          "source": "src/js/utils.js",
+          "original": { "line": 4, "column": 29 }
+        },
+        {
+          "generated": { "line": 19, "column": 0 },
+          "source": "src/js/utils.js",
+          "original": { "line": 4, "column": 29 }
+        },
+        {
+          "name": "Array",
+          "generated": { "line": 19, "column": 9 },
+          "source": "src/js/utils.js",
+          "original": { "line": 5, "column": 2 }
+        },
+        {
+          "generated": { "line": 19, "column": 14 },
+          "source": "src/js/utils.js",
+          "original": { "line": 5, "column": 7 }
+        },
+        {
+          "name": "num",
+          "generated": { "line": 19, "column": 15 },
+          "source": "src/js/utils.js",
+          "original": { "line": 5, "column": 8 }
+        },
+        {
+          "generated": { "line": 19, "column": 18 },
+          "source": "src/js/utils.js",
+          "original": { "line": 5, "column": 7 }
+        },
+        {
+          "generated": { "line": 19, "column": 19 },
+          "source": "src/js/utils.js",
+          "original": { "line": 5, "column": 2 }
+        },
+        {
+          "name": "fill",
+          "generated": { "line": 19, "column": 20 },
+          "source": "src/js/utils.js",
+          "original": { "line": 6, "column": 5 }
+        },
+        {
+          "generated": { "line": 19, "column": 24 },
+          "source": "src/js/utils.js",
+          "original": { "line": 5, "column": 2 }
+        },
+        {
+          "name": "map",
+          "generated": { "line": 19, "column": 27 },
+          "source": "src/js/utils.js",
+          "original": { "line": 7, "column": 5 }
+        },
+        {
+          "generated": { "line": 19, "column": 30 },
+          "source": "src/js/utils.js",
+          "original": { "line": 5, "column": 2 }
+        },
+        {
+          "generated": { "line": 19, "column": 31 },
+          "source": "src/js/utils.js",
+          "original": { "line": 7, "column": 9 }
+        },
+        {
+          "name": "item",
+          "generated": { "line": 19, "column": 41 },
+          "source": "src/js/utils.js",
+          "original": { "line": 7, "column": 10 }
+        },
+        {
+          "generated": { "line": 19, "column": 45 },
+          "source": "src/js/utils.js",
+          "original": { "line": 7, "column": 9 }
+        },
+        {
+          "name": "index",
+          "generated": { "line": 19, "column": 47 },
+          "source": "src/js/utils.js",
+          "original": { "line": 7, "column": 16 }
+        },
+        {
+          "generated": { "line": 19, "column": 52 },
+          "source": "src/js/utils.js",
+          "original": { "line": 7, "column": 9 }
+        },
+        {
+          "generated": { "line": 20, "column": 0 },
+          "source": "src/js/utils.js",
+          "original": { "line": 7, "column": 9 }
+        },
+        {
+          "name": "index",
+          "generated": { "line": 20, "column": 11 },
+          "source": "src/js/utils.js",
+          "original": { "line": 7, "column": 26 }
+        },
+        {
+          "generated": { "line": 20, "column": 16 },
+          "source": "src/js/utils.js",
+          "original": { "line": 7, "column": 9 }
+        },
+        {
+          "generated": { "line": 21, "column": 0 },
+          "source": "src/js/utils.js",
+          "original": { "line": 7, "column": 9 }
+        },
+        {
+          "generated": { "line": 21, "column": 3 },
+          "source": "src/js/utils.js",
+          "original": { "line": 5, "column": 2 }
+        },
+        {
+          "generated": { "line": 21, "column": 4 },
+          "source": "src/js/utils.js",
+          "original": { "line": 4, "column": 29 }
+        },
+        {
+          "generated": { "line": 22, "column": 0 },
+          "source": "src/js/utils.js",
+          "original": { "line": 4, "column": 29 }
+        },
+        {
+          "generated": { "line": 22, "column": 1 },
+          "source": "src/js/utils.js",
+          "original": { "line": 4, "column": 7 }
+        }
+      ],
+      "sources": {
+        "src/js/utils.js": "export const randomNumberWithDecimalInRange = ({ min, max, decimal = 0 }) =>\n  (Math.random() * (max - min + min)).toFixed(decimal) * 1;\n\nexport const numberToArray = (num) =>\n  Array(num)\n    .fill()\n    .map((item, index) => index);\n"
+      },
+      "lineCount": null
+    }
+  },
+  "error": null,
+  "hash": "9c6c2ce6d0c8cd70012fb52ea545c19c",
+  "cacheData": { "env": {} }
+}

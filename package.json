@@ -1,0 +1,33 @@
+{
+  "name": "farm",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "author": "supfiger",
+  "license": "MIT",
+  "scripts": {
+    "open": "parcel 'index.html' --open --port 3000",
+    "build": "parcel build index.html",
+    "test": "jest",
+    "start": "yarn test && yarn open"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.24",
+    "jest": "^27.0.6",
+    "parcel-bundler": "^1.12.5",
+    "prettier": "^2.3.2"
+  },
+  "dependencies": {
+    "react-scripts": "^4.0.3",
+    "ts-node": "^10.1.0",
+    "typescript": "^4.3.5"
+  },
+  "jest": {
+    "clearMocks": true,
+    "coverageDirectory": "coverage",
+    "coverageProvider": "v8",
+    "testMatch": [
+      "**/__tests__/**/*.[jt]s?(x)",
+      "**/?(*.)+(spec|test).[tj]s?(x)"
+    ]
+  }
+}
