@@ -1,21 +1,17 @@
 import animals from "./ts/input";
-import {
-  randomNumberWithDecimalInRange,
-  numberToArray,
-  getGender,
-} from "./ts/utils";
-import { IAnimalProps, IAnimalParent, IAnimalsInput } from "./ts/types";
+import { randomNumberWithDecimalInRange, numberToArray, generateGender } from "./ts/utils";
+import { IAnimalProps, IAnimalParent, IAnimalsInput, AnimalChildren } from "./ts/types";
 
 class Animal {
-  readonly deathYear = this.setRandomValue("deathYear");
-  readonly pregnancyStartsFrom = this.setRandomValue("pregnancyStartsFrom");
-  readonly gender = getGender();
-  public _age = this.createAge();
+  readonly lifeDuration = this.generateRandomValue("lifeDuration");
+  readonly pregnancyStartsFrom = this.generateRandomValue("pregnancyStartsFrom");
+  readonly gender = generateGender();
+  public _age = this.generateAge();
 
   constructor(
     readonly props: IAnimalProps,
-    readonly kind: string,
     readonly parent: IAnimalParent,
+    readonly kind: string,
     readonly childIndex: number,
     public treeDepthAmount: number
   ) {}
@@ -28,18 +24,8 @@ class Animal {
     return Boolean(
       this.gender === "girl" &&
         this.treeDepthAmount > 0 &&
-        this.age > this.setRandomValue("pregnancyDuration")
+        this.age > this.generateRandomValue("pregnancyDuration")
     );
-  }
-
-  createAge(): number {
-    const decimal = 2;
-    const min = 0;
-    const max = this.isParent
-      ? this.parent.age - this.pregnancyDuration
-      : this.deathYear;
-
-    return (this._age = randomNumberWithDecimalInRange({ min, max, decimal }));
   }
 
   get name(): string {
@@ -56,9 +42,9 @@ class Animal {
     return { age, name };
   }
 
-  get children() {
+  get children(): AnimalChildren {
     return this.canGiveBirth
-      ? new AnimalChildren({
+      ? new Children({
           parent: this.animalInfo,
           props: this.props,
           kind: this.kind,
@@ -76,14 +62,18 @@ class Animal {
     this._age = twinAge;
   }
 
-  set pregnancyDuration(random: number) {
-    this.pregnancyDuration = random;
+  generateAge(): number {
+    const decimal = 2;
+    const min = 0;
+    const max = this.isParent ? this.parent.age - this.pregnancyDuration : this.lifeDuration;
+
+    return (this._age = randomNumberWithDecimalInRange({ min, max, decimal }));
   }
 
-  setRandomValue(field: string, decimal = 2): number {
+  generateRandomValue(field: string, decimal = 2): number {
     return randomNumberWithDecimalInRange({
-      min: this.props[field].min,
-      max: this.props[field].max,
+      min: this.props[field as keyof IAnimalProps].min,
+      max: this.props[field as keyof IAnimalProps].max,
       decimal,
     });
   }
@@ -94,7 +84,7 @@ class Animal {
 
   create(twinsAge: number) {
     this.downgradeTree();
-    this.age = twinsAge;
+    if (twinsAge) this.age = twinsAge;
 
     const name = this.name;
     const age = this.age;
@@ -105,49 +95,48 @@ class Animal {
   }
 }
 
-class AnimalChildren {
-  constructor({ ...args }) {
-    const { kind, props, treeDepthAmount, parent } = args;
+class Children {
+  constructor(
+    readonly parent: IAnimalParent,
+    readonly props: IAnimalProps,
+    readonly isFirstGeneration: boolean,
+    readonly kind: string,
+    public treeDepthAmount: number
+  ) {}
 
-    this.kind = kind;
-    this.parent = parent || null;
-    this.treeDepthAmount = treeDepthAmount;
-    this.props = props;
-  }
-
-  get childrenArray() {
+  generateChildrenArray() {
     const min = 0;
-    const max = this.parent ? this.parent.givingBirth : 18;
+    const max = this.isFirstGeneration ? this.props.givingBirth : 18;
     const randomChildrenAmount = randomNumberWithDecimalInRange({ min, max });
     const childrenArray = numberToArray(randomChildrenAmount);
-    const isNotFirstGeneration = this.parent;
-    const children = !isNotFirstGeneration
-      ? this.createTwinsArray(childrenArray)
-      : childrenArray;
-
-    console.log("children:", children);
+    const children = this.isFirstGeneration
+      ? childrenArray
+      : this.generateTwinsArray(childrenArray);
 
     return children;
   }
 
-  areTwins(birth) {
-    return Object.keys(birth).length;
+  areTwins(birth: []): boolean {
+    return Boolean(Object.keys(birth).length);
   }
 
-  createRandom(field, decimal = 0) {
+  generateRandomValue(field: string, decimal = 2): number {
     return randomNumberWithDecimalInRange({
-      min: this.props[field].min,
-      max: this.props[field].max,
+      min: this.props[field as keyof IAnimalProps].min,
+      max: this.props[field as keyof IAnimalProps].max,
       decimal,
     });
   }
 
-  createTwinsArray(arr) {
-    console.log("this:", this);
+  generateTwinsArray(arr: number[]): number[][] {
     return arr.map(() => {
-      const randomTwinsAmount = this.parent ? this.createRandom("twins") : null;
+      const randomTwinsAmount = this.generateRandomValue("twins");
       return numberToArray(randomTwinsAmount);
     });
+  }
+
+  getTwinsAge({ prev, index }) {
+    return prev.length ? prev[index - 1].age : null;
   }
 
   createChild({ twinsAge, index }) {
@@ -160,13 +149,9 @@ class AnimalChildren {
     }).create(twinsAge);
   }
 
-  createTwinsAge({ prev, index }) {
-    return prev.length ? prev[index - 1].age : null;
-  }
-
   createTwins(arr) {
     const children = arr.reduce((prev, _, index) => {
-      const twinsAge = this.createTwinsAge({ prev, index });
+      const twinsAge = this.getTwinsAge({ prev, index });
       const child = this.createChild({ twinsAge, index });
 
       return [...prev, child];
@@ -176,10 +161,8 @@ class AnimalChildren {
   }
 
   create() {
-    return this.childrenArray.reduce((prev, curr, index) => {
-      const birth = this.areTwins(curr)
-        ? this.createTwins(curr)
-        : this.createChild({ index });
+    return this.generateChildrenArray().reduce((prev, curr, index) => {
+      const birth = this.areTwins(curr) ? this.createTwins(curr) : this.createChild({ index });
 
       return [...prev, birth];
     }, []);
@@ -191,7 +174,7 @@ class Farm {
 
   generateAnimalTree(kind: string, props: object) {
     const treeDepthAmount = randomNumberWithDecimalInRange({ min: 2, max: 5 });
-    return new AnimalChildren({ kind, props, treeDepthAmount }).create();
+    return new Children({ kind, props, treeDepthAmount }).create();
   }
 
   create() {

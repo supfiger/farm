@@ -24,7 +24,7 @@ Input:
 \`
 {
 Dogs: {
-deathYear: {
+lifeDuration: {
 min: 10,
 max: 13,
 },

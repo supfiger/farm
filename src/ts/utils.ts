@@ -14,7 +14,7 @@ export const numberToArray = (num: number): number[] => {
     .map((item, index) => index);
 };
 
-export const getGender = (): Gender => {
+export const generateGender = (): Gender => {
   const genders: string[] = ["boy", "girl"];
   const random: number = randomNumberWithDecimalInRange({ min: 0, max: 1 });
 

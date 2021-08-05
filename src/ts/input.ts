@@ -2,7 +2,7 @@ import { IAnimalsInput } from "./types";
 
 const animals = {
   Dogs: {
-    deathYear: {
+    lifeDuration: {
       min: 10,
       max: 13,
     },

@@ -20,7 +20,7 @@ interface IAnimal {
 export type AnimalChildren = IAnimal[];
 
 export interface IAnimalProps {
-  deathYear: IMinMax;
+  lifeDuration: IMinMax;
   pregnancyStartsFrom: IMinMax;
   pregnancyDuration: IMinMax;
   twins: IMinMax;
@@ -29,15 +29,8 @@ export interface IAnimalProps {
 
 export interface IAnimalParent {
   age: number;
-  name: number;
+  name: string;
 }
-
-export type AnimalClass = IAnimalProps &
-  IAnimal & {
-    childIndex: number;
-    type: string;
-    parent?: object;
-  };
 
 interface ITwins {
   twins: IAnimal[];
